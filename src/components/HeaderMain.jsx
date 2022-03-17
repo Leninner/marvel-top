@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const HeaderMain = () => {
   useEffect(() => {
@@ -12,6 +13,21 @@ export const HeaderMain = () => {
       window.removeEventListener('scroll', function () {});
     };
   }, []);
+
+  const navList = [
+    {
+      name: 'Home',
+      path: '/',
+    },
+    {
+      name: 'About',
+      path: '/about',
+    },
+    {
+      name: 'Contact',
+      path: '/contact',
+    },
+  ];
 
   return (
     <motion.header
@@ -33,24 +49,11 @@ export const HeaderMain = () => {
           y: 0,
         }}>
         <ul className='flex justify-between'>
-          <li>
-            <a href='#'>Home</a>
-          </li>
-          <li>
-            <a href='#'>About</a>
-          </li>
-          <li>
-            <a href='#'>Contact</a>
-          </li>
-          <li>
-            <a href='#'>Home</a>
-          </li>
-          <li>
-            <a href='#'>About</a>
-          </li>
-          <li>
-            <a href='#'>Contact</a>
-          </li>
+          {navList.map((item) => (
+            <motion.li key={item.name} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.9 }}>
+              <Link to={item.path}>{item.name}</Link>
+            </motion.li>
+          ))}
         </ul>
       </motion.nav>
 
