@@ -1,6 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
-import App from './components/App';
+import MarvelApp from './MarvelApp';
+import { ThemeContextProvider } from './context/ThemeContext';
 
-render(<App />, document.getElementById('root'));
+render(
+  <ThemeContextProvider>
+    <MarvelApp />
+  </ThemeContextProvider>,
+  document.getElementById('root')
+);
