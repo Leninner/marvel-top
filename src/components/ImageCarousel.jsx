@@ -1,11 +1,9 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useRef } from 'react';
+import { imagesForMobile, imagesForDesktop } from '../assets/imagesToSlide';
 
-export const ImageCarousel = ({ images }) => {
-  const carousel = useRef();
-
+export const ImageCarousel = () => {
   const settings = {
     infinite: true,
     dots: false,
@@ -18,18 +16,23 @@ export const ImageCarousel = ({ images }) => {
     pauseOnHover: false,
   };
 
-  console.log(images);
-
   return (
-    <div className='relative w-full h-screen'>
-      <Slider {...settings} ref={carousel}>
-        {images.map((item) => (
-          <div key={item.id}>
-            <img src={item.src} alt={item.alt} className='object-cover w-full h-screen' />
-          </div>
-        ))}
+    <div className='relative w-full h-full'>
+      <Slider {...settings}>
+        {window.innerWidth > 768
+          ? imagesForDesktop.map((item) => (
+              <div key={item.id}>
+                <img src={item.src} alt={item.alt} className='object-cover w-full h-screen' />
+              </div>
+            ))
+          : imagesForMobile.map((item) => (
+              <div key={item.id}>
+                <img src={item.src} alt={item.alt} className='object-cover w-full h-screen' />
+              </div>
+            ))}
       </Slider>
-      <div className='absolute top-0 w-full h-screen bg-gradient-to-t from-black to-transparent' />
+
+      <div className='absolute top-0 w-full h-full bg-transparent bg-gradient-to-t from-black to-transparent' />
     </div>
   );
 };

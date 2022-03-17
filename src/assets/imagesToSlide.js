@@ -1,17 +1,50 @@
-export const imagesToSlide = [
+export const imagesForDesktop = [
   {
     id: 1,
-    src: 'https://images2.alphacoders.com/744/thumbbig-744202.webp',
-    alt: 'The world',
+    src: 'https://fondosmil.com/fondo/48493.jpg',
+    alt: 'Laptop',
   },
   {
     id: 2,
-    src: 'https://images3.alphacoders.com/113/thumbbig-1135262.webp',
-    alt: 'Train',
+    src: 'https://fondosmil.com/fondo/48504.jpg',
+    alt: 'The world',
   },
   {
     id: 3,
-    src: 'https://images.alphacoders.com/886/thumbbig-886370.webp',
+    src: 'https://fondosmil.com/fondo/48489.jpg',
+    alt: 'Train',
+  },
+  {
+    id: 4,
+    src: 'https://fondosmil.com/fondo/48492.jpg',
+    alt: 'Laptop',
+  },
+  {
+    id: 5,
+    src: 'https://fondosmil.com/fondo/48494.jpg',
+    alt: 'Laptop',
+  },
+];
+
+export const imagesForMobile = [
+  {
+    id: 1,
+    src: 'https://fondosmil.com/fondo/48500.jpg',
+    alt: 'Laptop',
+  },
+  {
+    id: 2,
+    src: 'https://fondosmil.com/fondo/48505.jpg',
+    alt: 'The world',
+  },
+  {
+    id: 3,
+    src: 'https://fondosmil.com/fondo/48526.jpg',
+    alt: 'Train',
+  },
+  {
+    id: 4,
+    src: 'https://fondosmil.com/fondo/48561.jpg',
     alt: 'Laptop',
   },
 ];

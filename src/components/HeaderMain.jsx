@@ -1,8 +1,12 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import marvelLogo from '../assets/marvelLogo.png';
+import { HeaderLinksDesktop } from './HeaderLinksDesktop';
+import { HeaderLinksMobile } from './HeaderLinksMobile';
+import { useEffect, useState } from 'react';
 
 export const HeaderMain = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     window.addEventListener('scroll', function () {
       const header = document.querySelector('header');
@@ -14,21 +18,6 @@ export const HeaderMain = () => {
     };
   }, []);
 
-  const navList = [
-    {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'About',
-      path: '/about',
-    },
-    {
-      name: 'Contact',
-      path: '/contact',
-    },
-  ];
-
   return (
     <motion.header
       className='fixed top-0 z-10 w-full h-[78px] bg-transparent duration-300 py-[30px] px-[20px] flex items-center justify-between text-white'
@@ -38,24 +27,20 @@ export const HeaderMain = () => {
       animate={{
         y: 0,
       }}>
-      <img src='' alt='some' className='pl-10' />
+      <img src={marvelLogo} alt='some' className='w-32 pl-2 md:pl-10' />
 
-      <motion.nav
-        className='w-1/2 pr-10'
-        initial={{
-          y: -50,
-        }}
+      <HeaderLinksDesktop />
+
+      {isOpen && <HeaderLinksMobile />}
+
+      <motion.span
+        className='text-white material-icons-outlined md:hidden'
+        onClick={() => setIsOpen(!isOpen)}
         animate={{
-          y: 0,
+          rotate: isOpen ? 180 : 0,
         }}>
-        <ul className='flex justify-between'>
-          {navList.map((item) => (
-            <motion.li key={item.name} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.9 }}>
-              <Link to={item.path}>{item.name}</Link>
-            </motion.li>
-          ))}
-        </ul>
-      </motion.nav>
+        {isOpen ? 'close' : 'menu'}
+      </motion.span>
 
       <div className='absolute left-0 w-full h-full bg-gradient-to-b from-black -z-10 to-transparent' />
     </motion.header>
