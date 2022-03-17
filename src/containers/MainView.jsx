@@ -3,8 +3,8 @@ import { imagesToSlide } from '../assets/imagesToSlide';
 
 export const MainView = () => {
   return (
-    <div className='w-full h-screen'>
+    <main className='relative w-full h-screen'>
       <ImageCarousel images={imagesToSlide} />
-    </div>
+    </main>
   );
 };

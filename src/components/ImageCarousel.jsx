@@ -7,16 +7,8 @@ export const ImageCarousel = ({ images }) => {
   const carousel = useRef();
 
   const settings = {
-    customPaging: function (i) {
-      return (
-        <a>
-          <img src={images[i].src} height='100%' width='100%' alt={images[i].alt} />
-        </a>
-      );
-    },
-
     infinite: true,
-    dots: true,
+    dots: false,
     slidesToShow: 1,
     arrows: false,
     slidesToScroll: 1,
@@ -29,14 +21,15 @@ export const ImageCarousel = ({ images }) => {
   console.log(images);
 
   return (
-    <div className='w-full h-screen'>
+    <div className='relative w-full h-screen'>
       <Slider {...settings} ref={carousel}>
         {images.map((item) => (
           <div key={item.id}>
-            <img src={item.src} alt={item.alt} className='w-full h-screen object-cover' />
+            <img src={item.src} alt={item.alt} className='object-cover w-full h-screen' />
           </div>
         ))}
       </Slider>
+      <div className='absolute top-0 w-full h-screen bg-gradient-to-t from-black to-transparent' />
     </div>
   );
 };
