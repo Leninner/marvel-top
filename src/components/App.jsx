@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
-import { getHeroesInfo } from '../utils/getHeroesInfo';
+import { useFetchInitialData } from '../Hooks/useFetchInitialData';
 
 function App() {
   const variants = {
@@ -8,14 +7,23 @@ function App() {
     visible: { opacity: 1 },
   };
 
-  useEffect(() => {
-    getHeroesInfo();
-  }, []);
+  const { information } = useFetchInitialData();
+
+  console.log(information);
+  const { data } = information;
 
   return (
     <div className='App'>
       <motion.h1 initial='hidden' animate='visible' variants={variants}>
-        Leninner
+        {data.map((value) => {
+          return (
+            <div key={value.id}>
+              <h3>{value.name}</h3>
+              {/* Here I need the size of the images: https://developer.marvel.com/documentation/images */}
+              <img src={`${value.thumbnail.path}/portrait_uncanny.jpg`} alt='' />
+            </div>
+          );
+        })}
       </motion.h1>
     </div>
   );
