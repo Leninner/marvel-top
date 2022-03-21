@@ -14,26 +14,43 @@ export const CharacterCard = ({ id, thumbnail: { path, extension }, name }) => {
       initial='hidden'
       animate='visible'
       variants={variants}
-      className='md:m-5 md:w-[232px] h-[312.84px] cursor-pointer w-11/12 mb-5'
+      className='md:m-5 lg:w-[400px] h-[450px] cursor-pointer w-11/12 mb-5 relative'
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}>
       {/* Here I need the size of the images: https://developer.marvel.com/documentation/images */}
 
-      <div className='h-[262px] w-full overflow-hidden'>
+      <div className='w-full h-full overflow-hidden'>
         <motion.img
           src={`${path + '.' + extension}`}
-          className='object-cover w-full h-full'
-          whileHover={isHover ? { scale: 1.07 } : { scale: 1 }}
-          transition={{ duration: 0.3 }}
+          className={`object-cover w-full h-full`}
+          animate={
+            isHover
+              ? {
+                  scale: 1.8,
+                }
+              : { scale: 1 }
+          }
+          transition={{
+            type: 'spring',
+            stiffness: 120,
+            damping: 20,
+            duration: 0.5,
+          }}
         />
       </div>
-
-      <motion.div
-        className={`w-full h-[50.84px] p-2 bg-[#061c25] flex items-center text-[20px] text-white ${
-          isHover ? 'pl-7' : 'pl-5'
-        } duration-300`}>
-        {name}
-      </motion.div>
+      {isHover && (
+        <motion.div
+          className='absolute top-0 w-full h-full bg-transparent bg-gradient-to-t from-black to-transparent'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 120,
+            damping: 20,
+            duration: 0.5,
+          }}
+        />
+      )}
     </motion.div>
   );
 };

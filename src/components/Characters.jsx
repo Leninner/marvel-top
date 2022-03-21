@@ -6,7 +6,7 @@ export const Characters = () => {
   const { data } = information;
 
   return (
-    <div className='grid w-full grid-cols-1 md:w-11/12 lg:container md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center'>
+    <div className='grid w-full grid-cols-1 lg:container md:grid-cols-2 lg:grid-cols-3 place-items-center'>
       {data.map((value) => {
         return <CharacterCard {...value} />;
       })}
