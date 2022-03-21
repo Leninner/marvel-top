@@ -14,7 +14,7 @@ export const CharacterCard = ({ id, thumbnail: { path, extension }, name }) => {
       initial='hidden'
       animate='visible'
       variants={variants}
-      className='md:m-5 lg:w-[400px] h-[450px] cursor-pointer w-11/12 mb-5 relative'
+      className='md:m-5 lg:w-[400px] h-[550px] lg:h-[450px] cursor-pointer w-11/12 mb-5 relative'
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}>
       {/* Here I need the size of the images: https://developer.marvel.com/documentation/images */}
