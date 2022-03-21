@@ -17,7 +17,7 @@ export const ImageCarousel = () => {
   };
 
   return (
-    <div className='relative w-full h-full'>
+    <div className='relative w-full h-full '>
       <Slider {...settings}>
         {window.innerWidth > 768
           ? imagesForDesktop.map((item) => (
