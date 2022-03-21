@@ -1,31 +1,14 @@
-import { motion } from 'framer-motion';
 import { useFetchInitialData } from '../Hooks/useFetchInitialData';
+import { CharacterCard } from './CharacterCard';
 
 export const Characters = () => {
-  const variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
   const { information } = useFetchInitialData({ limit: 20, offset: 600 });
   const { data } = information;
 
-  console.log(information);
-
   return (
-    <div>
+    <div className='grid w-full grid-cols-1 md:w-11/12 lg:container md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center'>
       {data.map((value) => {
-        return (
-          <motion.div
-            key={value.id}
-            initial='hidden'
-            animate='visible'
-            variants={variants}
-            className='m-5 dark:bg-black dark:text-white'>
-            <h3>{value.name}</h3>
-            {/* Here I need the size of the images: https://developer.marvel.com/documentation/images */}
-            <img src={`${value.thumbnail.path + '.' + value.thumbnail.extension}`} alt='' />
-          </motion.div>
-        );
+        return <CharacterCard {...value} />;
       })}
     </div>
   );
