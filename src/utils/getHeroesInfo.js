@@ -6,5 +6,5 @@ export const getHeroesInfo = async ({ limit = 20, offset = 0 }) => {
 
   const response = await axios.get(URL);
 
-  return response.data.data.results.filter(({ thumbnail }) => !thumbnail.path.includes('image_not_available'));
+  return response.data.data;
 };
