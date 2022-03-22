@@ -20,7 +20,7 @@ export const HeaderMain = () => {
 
   return (
     <motion.header
-      className='fixed top-0 z-10 w-full h-[78px] bg-transparent duration-300 py-[30px] px-[20px] flex items-center justify-between text-white'
+      className='fixed top-0 z-50 w-full h-[78px] bg-transparent duration-300 py-[30px] px-[20px] flex items-center justify-between text-white'
       initial={{
         y: -78,
       }}
