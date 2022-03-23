@@ -10,7 +10,7 @@ export const HoverThings = ({ name }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          duration: 0.5,
+          duration: 0.2,
         }}>
         <div className='relative w-full h-full '>
           <motion.span
@@ -47,7 +47,7 @@ export const HoverThings = ({ name }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.55 }}
         transition={{
-          duration: 0.5,
+          duration: 0.2,
         }}
       />
     </>

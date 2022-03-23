@@ -33,7 +33,7 @@ export const CharacterCard = ({ id, thumbnail: { path, extension }, name }) => {
               : { scale: 1 }
           }
           transition={{
-            duration: 0.5,
+            duration: 0.2,
           }}
         />
       </div>
@@ -53,7 +53,7 @@ export const CharacterCard = ({ id, thumbnail: { path, extension }, name }) => {
               }
         }
         transition={{
-          duration: 0.5,
+          duration: 0.2,
         }}
       />
 
