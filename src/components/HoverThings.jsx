@@ -10,7 +10,7 @@ export const HoverThings = ({ name }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          duration: 0.2,
+          duration: 0.3,
         }}>
         <div className='relative w-full h-full '>
           <motion.span
@@ -32,7 +32,7 @@ export const HoverThings = ({ name }) => {
               y: 0,
             }}
             transition={{
-              duration: 0.65,
+              duration: 0.4,
             }}>
             <MdDescription color='white' size='20' className='cursor-pointer' />
             <BiLibrary color='white' size='20' className='cursor-pointer ' />
@@ -47,7 +47,7 @@ export const HoverThings = ({ name }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.55 }}
         transition={{
-          duration: 0.2,
+          duration: 0.3,
         }}
       />
     </>
