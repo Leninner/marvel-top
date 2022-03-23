@@ -19,6 +19,9 @@ export const HoverThings = ({ name }) => {
             animate={{
               y: 0,
               opacity: 1,
+            }}
+            transition={{
+              duration: 0.3,
             }}>
             {name}
           </motion.span>
