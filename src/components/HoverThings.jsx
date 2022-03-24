@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import { MdDescription, MdVideoLibrary, MdLibraryBooks } from 'react-icons/md';
-import { BiLibrary } from 'react-icons/bi';
+import { AiFillInfoCircle } from 'react-icons/ai';
 
-export const HoverThings = ({ name }) => {
+export const HoverThings = ({ name, handleOpen }) => {
   return (
     <>
       <motion.div
@@ -27,7 +26,7 @@ export const HoverThings = ({ name }) => {
           </motion.span>
 
           <motion.div
-            className='absolute bottom-0 right-0 flex flex-col justify-between mb-2 h-2/4 left-2'
+            className='absolute bottom-0 right-0 mb-2 left-2'
             initial={{
               y: '100%',
             }}
@@ -37,10 +36,7 @@ export const HoverThings = ({ name }) => {
             transition={{
               duration: 0.4,
             }}>
-            <MdDescription color='white' size='20' className='cursor-pointer' />
-            <BiLibrary color='white' size='20' className='cursor-pointer ' />
-            <MdVideoLibrary color='white' size='20' className='cursor-pointer' />
-            <MdLibraryBooks color='white' size='20' className='cursor-pointer' />
+            <AiFillInfoCircle color='white' size='40' className='cursor-pointer' onClick={handleOpen} />
           </motion.div>
         </div>
       </motion.div>
