@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { AiFillInfoCircle } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
-export const HoverThings = ({ name, handleOpen }) => {
+export const HoverThings = ({ name, path }) => {
   return (
-    <>
+    <Link to={path}>
       <motion.div
         className=' w-[97%] h-[97%] border border-[#ccc5b9] absolute center z-10 top-0 left-0 right-0 bottom-0 m-auto rounded-lg'
         initial={{ opacity: 0 }}
@@ -36,7 +37,7 @@ export const HoverThings = ({ name, handleOpen }) => {
             transition={{
               duration: 0.4,
             }}>
-            <AiFillInfoCircle color='white' size='40' className='cursor-pointer' onClick={handleOpen} />
+            <AiFillInfoCircle color='white' size='40' className='cursor-pointer' />
           </motion.div>
         </div>
       </motion.div>
@@ -49,6 +50,6 @@ export const HoverThings = ({ name, handleOpen }) => {
           duration: 0.3,
         }}
       />
-    </>
+    </Link>
   );
 };

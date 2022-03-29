@@ -1,21 +1,23 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HoverThings } from './HoverThings';
-import { ModalInfoPortal } from './ModalInfo';
 
-export const CharacterCard = ({ id, thumbnail: { path, extension }, name }) => {
+export const CharacterCard = ({ id, thumbnail: { path, extension }, name, description, comics }) => {
   const [isHover, setIsHover] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
 
   const variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
 
-  const handleOpen = () => {
-    setIsHover(false);
-    setIsOpen(!isOpen);
-  };
+  // const characterInfo = {
+  //   id,
+  //   path,
+  //   extension,
+  //   name,
+  //   description,
+  //   comics,
+  // };
 
   return (
     <motion.div
@@ -64,8 +66,7 @@ export const CharacterCard = ({ id, thumbnail: { path, extension }, name }) => {
         }}
       />
 
-      {isHover && <HoverThings name={name} handleOpen={handleOpen} />}
-      {isOpen && <ModalInfoPortal handleOpen={handleOpen} />}
+      {isHover && <HoverThings name={name} path={`/characterInfo/${id}/${name.split(' ')[0]}`} />}
     </motion.div>
   );
 };

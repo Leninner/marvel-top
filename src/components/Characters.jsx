@@ -36,7 +36,7 @@ export const Characters = () => {
         {loading && <p className='text-3xl text-white'>Loading...</p>}
 
         {charactersToShow?.map((value) => {
-          return <CharacterCard {...value} />;
+          return <CharacterCard {...value} key={value.id} />;
         })}
 
         {error && <p className='text-3xl text-white'>Error...</p>}
